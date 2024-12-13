@@ -1,11 +1,20 @@
-
+import React from "react";
+import Header from './components/Header';
+import { SidebarProvider } from './sidebar/Sidebar';
+import { SearchProvider } from './sidebar/Sidebar';
+import { Outlet } from "react-router-dom";
 function App() {
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline"><a href="https://www.youtube.com">Welcome To Youtube Clone Project</a></h1>
-    </>
-  )
-}
+    <SidebarProvider>
+    <SearchProvider>
+      <Header/>
+      <Outlet />
+    </SearchProvider>
+    </SidebarProvider>
+    
+  );
+};
 
-export default App
+export default App;
+ 
