@@ -12,6 +12,11 @@ export default {
         width:{
           "240":"640"
         },
+        screens: {
+          'md2': '890px',
+          'lsm': '475px',
+          'lg+': '1145px'
+        }
     },
   },
   plugins: [],

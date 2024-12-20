@@ -21,7 +21,7 @@ export default function Login() {
     async function handleLogin(e) {
         try {
             e.preventDefault();
-            const response = await fetch("http://localhost:5100/loginUser", {
+            const response = await fetch("http://localhost:5000/login", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -40,7 +40,7 @@ export default function Login() {
             const data = await response.json();
             console.log(data);
 
-            //setting expiry time for accessToken and firstName in localStorage
+            //accessToken and firstName in localStorage
             const expiry = Date.now() + 30 * 60000;
             const token = data.accessToken;
             localStorage.setItem("accessToken", JSON.stringify({ token, expiry }));
@@ -49,7 +49,7 @@ export default function Login() {
             alert("Login successfully");
 
             setTimeout(() => {
-                navigate("/cart");
+                navigate("/");
                 window.location.reload()
             },100);
 
